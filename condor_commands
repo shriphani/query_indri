@@ -1,0 +1,8 @@
+nohup condor_run "query_indri /bos/tmp19/spalakod/clueweb12pp/kba/kba_directories_list_aa.queries 1> /bos/tmp19/spalakod/clueweb12pp/kba/kba_directories_list_aa.queries.results" &
+nohup condor_run "query_indri /bos/tmp19/spalakod/clueweb12pp/kba/kba_directories_list_ab.queries 1> /bos/tmp19/spalakod/clueweb12pp/kba/kba_directories_list_ab.queries.results" &
+nohup condor_run "query_indri /bos/tmp19/spalakod/clueweb12pp/kba/kba_directories_list_ac.queries 1> /bos/tmp19/spalakod/clueweb12pp/kba/kba_directories_list_ac.queries.results" &
+nohup condor_run "query_indri /bos/tmp19/spalakod/clueweb12pp/kba/kba_directories_list_ad.queries 1> /bos/tmp19/spalakod/clueweb12pp/kba/kba_directories_list_ad.queries.results" &
+nohup condor_run "query_indri /bos/tmp19/spalakod/clueweb12pp/kba/kba_directories_list_ae.queries 1> /bos/tmp19/spalakod/clueweb12pp/kba/kba_directories_list_ae.queries.results" &
+nohup condor_run "query_indri /bos/tmp19/spalakod/clueweb12pp/kba/kba_directories_list_af.queries 1> /bos/tmp19/spalakod/clueweb12pp/kba/kba_directories_list_af.queries.results" &
+nohup condor_run "query_indri /bos/tmp19/spalakod/clueweb12pp/kba/kba_directories_list_ag.queries 1> /bos/tmp19/spalakod/clueweb12pp/kba/kba_directories_list_ag.queries.results" &
+nohup condor_run "query_indri /bos/tmp19/spalakod/clueweb12pp/kba/kba_directories_list_ah.queries 1> /bos/tmp19/spalakod/clueweb12pp/kba/kba_directories_list_ah.queries.results" &
