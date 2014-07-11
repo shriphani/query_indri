@@ -1,3 +1,4 @@
+#include <fstream>
 #include <vector>
 #include "indri/QueryEnvironment.hpp"
 #include "lemur/Exception.hpp"
@@ -8,13 +9,34 @@ void tryAddServer(QueryEnvironment *env, string server) {
   try {
     env->addServer(server);
   } catch (lemur::api::Exception &e) {
-    cout << "Failed to add: " << server << endl;
+    cerr << "Failed to add: " << server << endl;
   }
 }
 
-std::vector<string> urls(QueryEnvironment *env, string query) {
+string urls(QueryEnvironment *env, string query) {
+  // empty queries are pointless
+  if(query.empty() || query == "#1()") {
+    return "--";
+  }
+
   std::vector<ScoredExtentResult> results = env->runQuery(query, 1);
-  return env->documentMetadata(results, "url");
+
+  if (results.size() > 0) {
+    return env->documentMetadata(results, "url").at(0);
+  } else {
+    return "--";
+  }
+}
+
+int readQueriesFile(QueryEnvironment *env, string queries_file) {
+  std::ifstream infile(queries_file.c_str());
+
+  std::string line;
+  
+  while (std::getline(infile, line)) {
+    string query =  "#1(" + line + ")";
+    cout << urls(env, query) << endl;
+  }
 }
 
 int main(int argc, char *argv[]) {
@@ -38,9 +60,7 @@ int main(int argc, char *argv[]) {
     tryAddServer(&env, servers[i]);
   }
 
-  std::vector<string> us = urls(&env, argv[1]);
-
-  for (int i = 0; i < us.size(); i++) {
-    cout << us.at(i) << endl;
-  }
+  string filename = argv[1];
+  
+  readQueriesFile(&env, filename);
 }
