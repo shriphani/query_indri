@@ -12,6 +12,11 @@ void tryAddServer(QueryEnvironment *env, string server) {
   }
 }
 
+std::vector<string> urls(QueryEnvironment *env, string query) {
+  std::vector<ScoredExtentResult> results = env->runQuery(query, 1);
+  return env->documentMetadata(results, "url");
+}
+
 int main(int argc, char *argv[]) {
 
   // assuming that the first argument is the query
@@ -33,5 +38,9 @@ int main(int argc, char *argv[]) {
     tryAddServer(&env, servers[i]);
   }
 
-  
+  std::vector<string> us = urls(&env, argv[1]);
+
+  for (int i = 0; i < us.size(); i++) {
+    cout << us.at(i) << endl;
+  }
 }
