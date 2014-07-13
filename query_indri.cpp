@@ -45,7 +45,7 @@ int main(int argc, char *argv[]) {
 
   QueryEnvironment env;
 
-  string servers[10] = { "10.1.1.236:12000",
+  string servers[20] = { "10.1.1.236:12000",
                          "10.1.1.236:12001",
                          "10.1.1.236:12002",
                          "10.1.1.236:12003",
@@ -66,7 +66,7 @@ int main(int argc, char *argv[]) {
                          "10.1.1.228:12018",
                          "10.1.1.228:12019" };
 
-  for (int i = 0; i < 10; i++) {
+  for (int i = 0; i < 20; i++) {
     tryAddServer(&env, servers[i]);
   }
 
